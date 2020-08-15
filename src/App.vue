@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <com-header/>
+    <com-header v-bind:titleHeader="title" v-on:AppChangeTitle="handleChangeTitle"/>
     <img src="./assets/logo.png">
     <h1>{{ msg }}</h1>
     <com-list-user v-bind:listUsers="users"/>
-    <com-footer/>
+    <com-footer v-bind:titleFooter="title"/>
   </div>
 </template>
 
@@ -30,8 +30,14 @@ export default {
                 name: 'van',
                 age: 21
             }
-        ]
+        ],
+    title: 'my title'
     }
+  },
+  methods: {
+handleChangeTitle(e) {
+  this.title = e;
+}
   },
   components: {
     ComHeader,

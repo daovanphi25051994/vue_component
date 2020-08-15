@@ -1,15 +1,26 @@
 <template>
     <header>
-        <h1>{{ text }}</h1>
+        <h1>{{ titleHeader }}</h1>
+        <button type="button" v-on:click="changetitle">Change Title</button>
     </header>
+    
 </template>
 
 <script>
 export default {
     name: 'com-header',
+    props: {
+        titleHeader: String
+    },
     data() {
         return {
-            text: 'This is Header'
+           
+        }
+    },
+    methods: {
+        changetitle() {
+            let title = 'header hehe title';
+            this.$emit('AppChangeTitle', title);
         }
     }
 }

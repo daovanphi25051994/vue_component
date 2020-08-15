@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>{{ text }}</h1>
+        <h1>{{ titleFooter }}</h1>
     </div>
 </template>
 
@@ -8,9 +8,12 @@
 <script>
 export default {
     name: 'com-footer',
+    props: {
+        titleFooter: String
+    },
     data() {
         return {
-            text: 'This is Footer'
+          
         }
     }
 }
