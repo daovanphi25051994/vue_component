@@ -1,7 +1,6 @@
 <template>
   <table>
     <tr>
-      <th>ID</th>
       <th>Name</th>
       <th>Age</th>
       <th>Delete</th>

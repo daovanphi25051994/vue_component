@@ -1,6 +1,5 @@
 <template>
   <tr>
-    <td>{{ index }}</td>
     <td>{{ user.name }}</td>
     <td>{{ user.age }}</td>
     <td><button v-on:click="onDeleteClick(index)">Delete</button></td>
