@@ -1,9 +1,9 @@
 <template>
     <header>
         <h1>{{ titleHeader }}</h1>
-        <button type="button" v-on:click="changetitle">Change Title</button>
+        <button type="button" v-on:click="changeTitle">Change Title</button>
     </header>
-    
+
 </template>
 
 <script>
@@ -14,12 +14,12 @@ export default {
     },
     data() {
         return {
-           
+
         }
     },
     methods: {
-        changetitle() {
-            let title = 'header hehe title';
+      changeTitle() {
+            let title = 'header  title';
             this.$emit('AppChangeTitle', title);
         }
     }

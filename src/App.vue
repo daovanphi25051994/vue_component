@@ -3,41 +3,46 @@
     <com-header v-bind:titleHeader="title" v-on:AppChangeTitle="handleChangeTitle"/>
     <img src="./assets/logo.png">
     <h1>{{ msg }}</h1>
-    <com-list-user v-bind:listUsers="users"/>
+    <com-list-user v-bind:listUsers="users"
+                   v-on:onDeleteUser="deleteUser"/>
     <com-footer v-bind:titleFooter="title"/>
   </div>
 </template>
 
-<script> 
+<script>
 import ComHeader from './components/ComHeader.vue';
 import ComListUser from './components/ComListUser.vue';
 import ComFooter from './components/ComFooter.vue';
+
 export default {
   name: 'app',
-  data () {
+  data() {
     return {
-      msg: 'Welcome to My Projet',
+      msg: 'Welcome to My Project',
       users: [
-            {
-                name: 'phi',
-                age: 20
-            },
-            {
-                name: 'dao',
-                age: 22
-            },
-            {
-                name: 'van',
-                age: 21
-            }
-        ],
-    title: 'my title'
+        {
+          name: 'phi',
+          age: 20
+        },
+        {
+          name: 'dao',
+          age: 22
+        },
+        {
+          name: 'van',
+          age: 21
+        }
+      ],
+      title: 'my title'
     }
   },
   methods: {
-handleChangeTitle(e) {
-  this.title = e;
-}
+    handleChangeTitle(e) {
+      this.title = e;
+    },
+    deleteUser(e){
+      this.users.splice(e, 1);
+    }
   },
   components: {
     ComHeader,
