@@ -1,25 +1,42 @@
 <template>
   <div id="app">
-    <com-header></com-header>
+    <com-header/>
     <img src="./assets/logo.png">
     <h1>{{ msg }}</h1>
-    <com-footer></com-footer>
+    <com-list-user v-bind:listUsers="users"/>
+    <com-footer/>
   </div>
 </template>
 
 <script> 
-import ComHeader from './components/ComHeader';
-import ComFooter from './components/ComFooter';
+import ComHeader from './components/ComHeader.vue';
+import ComListUser from './components/ComListUser.vue';
+import ComFooter from './components/ComFooter.vue';
 export default {
   name: 'app',
   data () {
     return {
-      msg: 'Welcome to My Projet'
+      msg: 'Welcome to My Projet',
+      users: [
+            {
+                name: 'phi',
+                age: 20
+            },
+            {
+                name: 'dao',
+                age: 22
+            },
+            {
+                name: 'van',
+                age: 21
+            }
+        ]
     }
   },
   components: {
     ComHeader,
-    ComFooter
+    ComFooter,
+    ComListUser
   }
 }
 </script>
