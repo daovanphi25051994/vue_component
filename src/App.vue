@@ -1,11 +1,17 @@
 <template>
-  <div id="app">
+  <div>
     <com-header v-bind:titleHeader="title" v-on:AppChangeTitle="handleChangeTitle"/>
     <img src="./assets/logo.png">
     <h1>{{ msg }}</h1>
     <com-list-user v-bind:listUsers="users"
                    v-on:onDeleteUser="deleteUser"/>
     <com-footer v-bind:titleFooter="title"/>
+    <div>
+      <button v-on:click="handleClickInputFile" type="button" class="avatar">Đổi ảnh đại diện</button>
+    </div>
+    <div>
+      <input ref="fileInputAvatar" type="file" style="display: none">
+    </div>
   </div>
 </template>
 
@@ -42,6 +48,9 @@ export default {
     },
     deleteUser(e){
       this.users.splice(e, 1);
+    },
+    handleClickInputFile(e){
+      this.$refs.fileInputAvatar.click();
     }
   },
   components: {
@@ -78,5 +87,17 @@ li {
 
 a {
   color: #42b983;
+}
+
+.avatar {
+    color: #fff;
+    border: 2px solid #333;
+  padding: 12px 15px;
+  background-color: #333;
+  transition: all .3s ease;
+}
+.avatar:hover {
+  background-color: lightpink;
+
 }
 </style>
